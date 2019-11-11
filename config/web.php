@@ -20,7 +20,8 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
+            //'identityClass' => 'app\models\User',
+            'identityClass' => 'dektrium\user\models\User',
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
@@ -43,14 +44,31 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
         'urlManager' => [
-            'enablePrettyUrl' => true,
+            'class' => 'yii\web\UrlManager',
+            // Disable index.php
             'showScriptName' => false,
+            // Disable r= routes
+            'enablePrettyUrl' => true,
             'rules' => [
+                    '<controller:\w+>/<id:\d+>' => '<controller>/view',
+                    '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+                    '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+                    ['class' => 'yii\rest\UrlRule', 'controller' => 'location', 'except' => ['delete','GET', 'HEAD','POST','OPTIONS'], 'pluralize'=>false],
+                    '<module:\w+>/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
             ],
         ],
-        */
+    ],
+    'modules' => [
+        'user' => [
+            'class' => 'dektrium\user\Module',
+            'enableUnconfirmedLogin' => true,
+            'confirmWithin' => 21600,
+            'cost' => 12,
+            'admins' => ['admin']
+        ],
+        //...
+        'gridview' => ['class' => 'kartik\grid\Module'],
     ],
     'params' => $params,
 ];
