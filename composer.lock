@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "42812c67711bd1a3189239fe829c34f7",
+=======
+    "content-hash": "1aa9c5ac246675939bde6cad4f215289",
+>>>>>>> master
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -96,7 +100,7 @@
             "version": "3.4.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:jquery/jquery-dist.git",
+                "url": "https://github.com/jquery/jquery-dist.git",
                 "reference": "15bc73803f76bc53b654b9fdbbbc096f56d7c03d"
             },
             "dist": {
@@ -463,6 +467,7 @@
             "time": "2016-10-24T15:52:54+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "kartik-v/yii2-date-range",
             "version": "v1.7.1",
             "source": {
@@ -517,6 +522,8 @@
             "time": "2019-05-17T12:35:38+00:00"
         },
         {
+=======
+>>>>>>> master
             "name": "kartik-v/yii2-dialog",
             "version": "v1.0.5",
             "source": {

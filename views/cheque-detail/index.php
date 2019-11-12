@@ -30,6 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= GridView::widget([
                 'dataProvider' => $dataProvider,
                 'filterModel' => $searchModel,
+<<<<<<< HEAD
                 'pager' => [
                     'firstPageLabel' => 'First',
                     'lastPageLabel' => 'Last',
@@ -49,12 +50,15 @@ $this->params['breadcrumbs'][] = $this->title;
                     ],
                 ],
                 'panel'=>['type'=>'primary', 'heading'=>'รายงานรวมทั้งหมด'],
+=======
+>>>>>>> master
                 'columns' => [
                     ['class' => '\kartik\grid\SerialColumn'],
 
                     'cheque_id',
                     [
                         'attribute'=>'cheque_date',
+<<<<<<< HEAD
                         'value'=> function($model){
                             if($model->cheque_date!=""){
                                 $ndate = $model->cheque_date;
@@ -77,6 +81,18 @@ $this->params['breadcrumbs'][] = $this->title;
                                 ],
                             ]
                         ])
+=======
+                        'filter' => DateRangePicker::widget([
+                            'model' => $searchModel,
+                            //'attribute' => 'dealerAvailableDate',
+                            'convertFormat' => true,
+                            'pluginOptions' => [
+                                'locale' => [
+                                    'format' => 'Y-m-d'
+                                ],
+                            ],
+                        ]),
+>>>>>>> master
                     ],
                     'cheque_buy_name:ntext',
                     [
