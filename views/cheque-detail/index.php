@@ -24,27 +24,48 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= GridView::widget([
                 'dataProvider' => $dataProvider,
                 'filterModel' => $searchModel,
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> master
                 'pager' => [
                     'firstPageLabel' => 'First',
                     'lastPageLabel' => 'Last',
                 ],
+<<<<<<< HEAD
                 'showOnEmpty'=>true,
                 'panel'=>['type'=>'danger', 'heading'=> Html::encode($this->title)],
                 'responsive'=>true,
                 'hover'=>true,
                 'pjax'=>true,
                 // 'showPageSummary' => true,
+=======
+                'options' => ['width' => '100%'],
+                'responsive'=>true,
+                'hover'=>true,
+>>>>>>> master
                 'export' => [
                     'label' => 'Export',
                     'fontAwesome' => true,
                 ],
                 'exportConfig' => [
                     \kartik\grid\GridView::EXCEL => [
+<<<<<<< HEAD
                     'fontAwesome' => true,
                     'label' => 'Export to Excel',
                     'icon' => 'file-excel-o',
                     ],
                 ],
+=======
+                        'fontAwesome' => true,
+                        'label' => 'Export to Excel',
+                        'icon' => 'file-excel-o',
+                    ],
+                ],
+                'panel'=>['type'=>'primary', 'heading'=>'รายงานรวมทั้งหมด'],
+=======
+>>>>>>> master
+>>>>>>> master
                 'columns' => [
                     ['class' => '\kartik\grid\SerialColumn'],
 
@@ -53,6 +74,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     // ],
                     [
                         'attribute'=>'cheque_date',
+<<<<<<< HEAD
                         'options' => ['width' => '200px'],
                         'value'=> function($model){
                             if($model->cheque_date!=""){
@@ -84,6 +106,43 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'width'=> 'auto'
                             ],
                         ],
+=======
+<<<<<<< HEAD
+                        'value'=> function($model){
+                            if($model->cheque_date!=""){
+                                $ndate = $model->cheque_date;
+                                $ndate1 = explode("-",$ndate);
+                                $ndate2 = $ndate1[0]+543;
+                                return $ndate1[2]."-".$ndate1[1]."-".$ndate2;
+                            }else{
+                                return "";
+                            }
+                        },                
+                        'filterType' => GridView::FILTER_DATE_RANGE,
+                        'filterWidgetOptions' =>([
+                                //'model'=>$model,
+                            'attribute'=>'cheque_date',          
+                            'convertFormat'=>true,  
+                            'language' => 'th',     
+                            'pluginOptions'=>[
+                                'locale'=>[
+                                    'format'=>'Y-m-d',
+                                ],
+                            ]
+                        ])
+=======
+                        'filter' => DateRangePicker::widget([
+                            'model' => $searchModel,
+                            //'attribute' => 'dealerAvailableDate',
+                            'convertFormat' => true,
+                            'pluginOptions' => [
+                                'locale' => [
+                                    'format' => 'Y-m-d'
+                                ],
+                            ],
+                        ]),
+>>>>>>> master
+>>>>>>> master
                     ],
                     [
                         'attribute' => 'bankname',
