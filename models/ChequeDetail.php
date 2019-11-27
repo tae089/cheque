@@ -32,9 +32,9 @@ class ChequeDetail extends \yii\db\ActiveRecord
     {
         return [
             [['cheque_date'], 'safe'],
-            [['cheque_buy_name', 'cheque_note'], 'string'],
+            [['cheque_note'], 'string'],
             [['bank_id', 'cheque_amont'], 'required'],
-            [['bank_id'], 'integer'],
+            [['bank_id','cheque_buy_name'], 'integer'],
             [['cheque_amont'], 'number'],
         ];
     }
@@ -47,14 +47,15 @@ class ChequeDetail extends \yii\db\ActiveRecord
         return [
             'cheque_id' => 'ลำดับ',
             'cheque_date' => 'วันที่ออก Cheque',
-            'cheque_buy_name' => 'จ่ายให้',
+            'contactname' => Yii::t('app','จ่ายให้'),
             'bankname' => Yii::t('app', 'ธนาคาร'),
             'cheque_amont' => 'จำนวนเงิน',
             'cheque_note' => 'หมายเหตุ',
         ];
     }
 
-    public  function getBank(){
+    public  function getBank()
+    {
         return @$this->hasOne(Bank::className(), ['bank_id' => 'bank_id']);
     }
 
@@ -62,4 +63,15 @@ class ChequeDetail extends \yii\db\ActiveRecord
     {
         return $this->bank->bank_name_th;
     }
+
+    public function getContact()
+    {
+        return @$this->hasOne(Contact::className(), ['contact_id' => 'cheque_buy_name']);
+    } 
+    
+    public function getContactName()
+    {
+        return $this->contact->contact_name;
+    }
+
 }

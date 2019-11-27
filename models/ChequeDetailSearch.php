@@ -15,11 +15,12 @@ class ChequeDetailSearch extends ChequeDetail
      * {@inheritdoc}
      */
     public $bankname;
+    public $contactname;
     public function rules()
     {
         return [
             [['cheque_id'], 'integer'],
-            [['cheque_date', 'cheque_buy_name', 'bankname', 'cheque_note'], 'safe'],
+            [['cheque_date', 'contactname', 'bankname', 'cheque_note'], 'safe'],
             [['cheque_amont'], 'number'],
         ];
     }
@@ -42,9 +43,10 @@ class ChequeDetailSearch extends ChequeDetail
      */
     public function search($params)
     {
+         
         $query = ChequeDetail::find();
         $query->joinWith(['bank']);
-
+        $query->joinWith(['contact']);
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
@@ -53,6 +55,10 @@ class ChequeDetailSearch extends ChequeDetail
         $dataProvider->sort->attributes['bankname'] = [
             'asc' => ['bank_name_th' => SORT_ASC],
             'desc' => ['bank_name_th' => SORT_DESC],
+        ];
+        $dataProvider->sort->attributes['contactname'] = [
+            'asc' => ['contact_name' => SORT_ASC],
+            'desc' => ['contact_name' => SORT_DESC],
         ];
 
         $this->load($params);
@@ -63,15 +69,16 @@ class ChequeDetailSearch extends ChequeDetail
             return $dataProvider;
         }
 
-        // grid filtering conditions
-        $query->andFilterWhere([
-            'cheque_id' => $this->cheque_id,
-            'cheque_date' => $this->cheque_date,
-           // 'bank_name_th' => $this->bank_id,
-            'cheque_amont' => $this->cheque_amont,
-        ]);
+        if($this->cheque_date){
+            $new_date = explode(' - ',$dates);     
+        }
+        
+         
+        // grid filtering conditions  
+        $query->andFilterWhere(['between', 'cheque_date', $new_date[0], $new_date[1]])
+            ->andFilterWhere(['cheque_amont' => $this->cheque_amont]);
 
-        $query->andFilterWhere(['like', 'cheque_buy_name', $this->cheque_buy_name])
+        $query->andFilterWhere(['like', 'contact_name', $this->contactname])
             ->andFilterWhere(['like', 'bank_name_th', $this->bankname])
             ->andFilterWhere(['like', 'cheque_note', $this->cheque_note]);
 

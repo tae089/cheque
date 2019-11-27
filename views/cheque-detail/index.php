@@ -5,12 +5,12 @@ use kartik\grid\GridView;
 use yii\helpers\ArrayHelper;
 use kartik\daterange\DateRangePicker;
 use app\models\Bank;
-
+use app\models\Contact;
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\ChequeDetailSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'รายการ Cheque';
+$this->title = 'รายการเช็ค';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cheque-detail-index">
@@ -20,45 +20,86 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-    <div class="box box-solid">
-            <div class="box-header with-border">
-              <h3 class="box-title"><?= Html::encode($this->title) ?></h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              
+             
             <?= GridView::widget([
                 'dataProvider' => $dataProvider,
                 'filterModel' => $searchModel,
+                'pager' => [
+                    'firstPageLabel' => 'First',
+                    'lastPageLabel' => 'Last',
+                ],
+                'showOnEmpty'=>true,
+                'panel'=>['type'=>'danger', 'heading'=> Html::encode($this->title)],
+                'responsive'=>true,
+                'hover'=>true,
+                'pjax'=>true,
+                // 'showPageSummary' => true,
+                'export' => [
+                    'label' => 'Export',
+                    'fontAwesome' => true,
+                ],
+                'exportConfig' => [
+                    \kartik\grid\GridView::EXCEL => [
+                    'fontAwesome' => true,
+                    'label' => 'Export to Excel',
+                    'icon' => 'file-excel-o',
+                    ],
+                ],
                 'columns' => [
                     ['class' => '\kartik\grid\SerialColumn'],
 
-                    'cheque_id',
+                    // ['attribute' => 'cheque_id',
+                    // 'contentOptions' => ['style'=>'width: 40px;']    
+                    // ],
                     [
                         'attribute'=>'cheque_date',
-                        'filter' => DateRangePicker::widget([
-                            'model' => $searchModel,
-                            //'attribute' => 'dealerAvailableDate',
-                            'convertFormat' => true,
-                            'pluginOptions' => [
-                                'locale' => [
-                                    'format' => 'Y-m-d'
+                        'options' => ['width' => '200px'],
+                        'value'=> function($model){
+                            if($model->cheque_date!=""){
+                                return $model->cheque_date;
+                            }else{
+                                return "";
+                            }
+                        },
+                        'filterType' => GridView::FILTER_DATE_RANGE,
+                        'filterWidgetOptions' =>([
+                            'attribute'=>'cheque_date',
+                            'convertFormat'=>true,
+                            'language' => 'th',
+                            'pluginOptions'=>[
+                                'locale'=>[
+                                    'format'=>'Y-m-d',
                                 ],
                             ],
-                        ]),
+                        ])  
                     ],
-                    'cheque_buy_name:ntext',
+                    [
+                        'attribute' => 'contactname',
+                        'filter' => ArrayHelper::map(Contact::find()->asArray()->all(), 'contact_name', 'contact_name'),
+                        'filterType' => GridView::FILTER_SELECT2,
+                        'filterWidgetOptions' => [
+                            'options' => ['prompt' => ''],
+                            'pluginOptions' => [
+                                'allowClear' => true,
+                                'width'=> 'auto'
+                            ],
+                        ],
+                    ],
                     [
                         'attribute' => 'bankname',
+                        'options' => ['width' => '200px'],
                         'filter' => ArrayHelper::map(Bank::find()->asArray()->all(), 'bank_name_th', 'bank_name_th'),
                     ],
-                    'cheque_amont',
+                    [
+                        'attribute'=>'cheque_amont',
+                        'options' => ['width' => '130px'],
+                        'value'=> function($model){
+                            return number_format($model->cheque_amont);
+                        }
+                    ],
                     //'cheque_note:ntext',
 
                     ['class' => 'yii\grid\ActionColumn'],
                 ],
             ]); ?>
-  <!-- /.box-body -->
-  </div>
-
 </div>
