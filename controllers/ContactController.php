@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\ChequeDetail;
-use app\models\ChequeDetailSearch;
+use app\models\Contact;
+use app\models\ContactSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ChequeDetailController implements the CRUD actions for ChequeDetail model.
+ * ContactController implements the CRUD actions for Contact model.
  */
-class ChequeDetailController extends Controller
+class ContactController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -30,12 +30,12 @@ class ChequeDetailController extends Controller
     }
 
     /**
-     * Lists all ChequeDetail models.
+     * Lists all Contact models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ChequeDetailSearch();
+        $searchModel = new ContactSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class ChequeDetailController extends Controller
     }
 
     /**
-     * Displays a single ChequeDetail model.
+     * Displays a single Contact model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -58,32 +58,16 @@ class ChequeDetailController extends Controller
     }
 
     /**
-     * Creates a new ChequeDetail model.
+     * Creates a new Contact model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $searchModel = new ChequeDetailSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $model = new ChequeDetail();
-        //$data = Yii::$app->request->post();
-        //print_r($data['ChequeDetail']['cheque_date']);
-        
-        if ($model->load(Yii::$app->request->post())) {
-            $data = Yii::$app->request->post();
-            
-            $model->cheque_date = $data['ChequeDetail']['cheque_date'];
-            $model->cheque_buy_name = $data['ChequeDetail']['cheque_buy_name'];
-            $model->bank_id = $data['ChequeDetail']['bankname'];
-            $model->cheque_amont = $data['ChequeDetail']['cheque_amont'];
-            $model->cheque_note = $data['ChequeDetail']['cheque_note'];
-            $model->save();
+        $model = new Contact();
 
-            return $this->render('index', [
-                'searchModel' => $searchModel,
-                'dataProvider' => $dataProvider,
-            ]);
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->contact_id]);
         }
 
         return $this->render('create', [
@@ -92,7 +76,7 @@ class ChequeDetailController extends Controller
     }
 
     /**
-     * Updates an existing ChequeDetail model.
+     * Updates an existing Contact model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -103,7 +87,7 @@ class ChequeDetailController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->cheque_id]);
+            return $this->redirect(['view', 'id' => $model->contact_id]);
         }
 
         return $this->render('update', [
@@ -112,7 +96,7 @@ class ChequeDetailController extends Controller
     }
 
     /**
-     * Deletes an existing ChequeDetail model.
+     * Deletes an existing Contact model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -126,15 +110,15 @@ class ChequeDetailController extends Controller
     }
 
     /**
-     * Finds the ChequeDetail model based on its primary key value.
+     * Finds the Contact model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return ChequeDetail the loaded model
+     * @return Contact the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = ChequeDetail::findOne($id)) !== null) {
+        if (($model = Contact::findOne($id)) !== null) {
             return $model;
         }
 

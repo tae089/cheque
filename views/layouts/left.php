@@ -26,7 +26,9 @@ use yii\helpers\Html;
                 'items' => [
                     ['label' => 'เมนู', 'options' => ['class' => 'header']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
-                    ['label' => 'Cheque', 'url' => ['cheque-detail/index'],'icon' => 'money']
+                    ['label' => 'Cheque', 'url' => ['cheque-detail/index'],'icon' => 'money'],
+                    ['label' => 'ตั้งต่า', 'options' => ['class' => 'header']],
+                    ['label' => 'ผู้ติตต่อ', 'url' => ['contact/index'],'icon' => 'users'],
                     // ['label' => 'ข่าวสาร กิจกรรม', 'url' => ['/news/index'],'icon' => 'fa fa-rss-square'],
                     // ['label' => 'ภาพสไลด์', 'url' => ['/slide-photo/index'],'icon' => 'fa fa-file-photo-o'],
                     // ['label' => 'อัลบั้มภาพ', 'url' => ['/album-photo/index'],'icon' => 'fa  fa-image'],
@@ -39,16 +41,16 @@ use yii\helpers\Html;
                     // ['label' => 'จัดการ เมนู', 'url' => ['/menu-music/index'],'icon' => 'fa fa-gear'],
                     // ['label' => 'จัดการ ประวัติความเป็นมา', 'url' => ['/history/index'],'icon' => 'fa fa-gear'],
                     
-/*                    [
-                        'label' => 'Same tools',
-                        'icon' => 'fa fa-share',
-                        'url' => '#',
-                        'items' => [
-                            ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii'],],
-                            ['label' => 'Debug', 'icon' => 'fa fa-dashboard', 'url' => ['/debug'],],
-                        ],
-                    ],*/
-                ],
+                //     [
+                //         'label' => 'Same tools',
+                //         'icon' => 'fa fa-share',
+                //         'url' => '#',
+                //         'items' => [
+                //             ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii'],],
+                //             ['label' => 'Debug', 'icon' => 'fa fa-dashboard', 'url' => ['/debug'],],
+                //         ],
+                //     ],
+                 ],
             ]
         ) ?>
 
