@@ -4,7 +4,19 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "466931d98bc5d48a5e091458445cf910",
+=======
+<<<<<<< HEAD
+    "content-hash": "466931d98bc5d48a5e091458445cf910",
+=======
+<<<<<<< HEAD
+    "content-hash": "42812c67711bd1a3189239fe829c34f7",
+=======
+    "content-hash": "1aa9c5ac246675939bde6cad4f215289",
+>>>>>>> master
+>>>>>>> master
+>>>>>>> master
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -96,7 +108,7 @@
             "version": "3.4.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jquery/jquery-dist.git",
+                "url": "git@github.com:jquery/jquery-dist.git",
                 "reference": "15bc73803f76bc53b654b9fdbbbc096f56d7c03d"
             },
             "dist": {
@@ -463,6 +475,7 @@
             "time": "2016-10-24T15:52:54+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "kartik-v/bootstrap-fileinput",
             "version": "v5.0.7",
             "source": {
@@ -474,6 +487,20 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/4a656ecf33088207834c7062db7cb61566648713",
                 "reference": "4a656ecf33088207834c7062db7cb61566648713",
+=======
+<<<<<<< HEAD
+            "name": "kartik-v/bootstrap-fileinput",
+            "version": "v5.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/bootstrap-fileinput.git",
+                "reference": "97fbfb5b16a3035c79534d5bd8a1d9bf4f76b1c5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/97fbfb5b16a3035c79534d5bd8a1d9bf4f76b1c5",
+                "reference": "97fbfb5b16a3035c79534d5bd8a1d9bf4f76b1c5",
+>>>>>>> master
                 "shasum": ""
             },
             "type": "library",
@@ -513,7 +540,11 @@
                 "progress",
                 "upload"
             ],
+<<<<<<< HEAD
             "time": "2019-11-17T12:22:22+00:00"
+=======
+            "time": "2019-09-11T18:05:56+00:00"
+>>>>>>> master
         },
         {
             "name": "kartik-v/bootstrap-star-rating",
@@ -607,6 +638,12 @@
             "time": "2019-03-09T10:53:11+00:00"
         },
         {
+<<<<<<< HEAD
+=======
+=======
+<<<<<<< HEAD
+>>>>>>> master
+>>>>>>> master
             "name": "kartik-v/yii2-date-range",
             "version": "v1.7.1",
             "source": {
@@ -661,6 +698,14 @@
             "time": "2019-05-17T12:35:38+00:00"
         },
         {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> master
+>>>>>>> master
+>>>>>>> master
             "name": "kartik-v/yii2-dialog",
             "version": "v1.0.5",
             "source": {
@@ -1403,6 +1448,7 @@
         },
         {
             "name": "kartik-v/yii2-widget-select2",
+<<<<<<< HEAD
             "version": "v2.1.7",
             "source": {
                 "type": "git",
@@ -1413,6 +1459,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/kartik-v/yii2-widget-select2/zipball/b8cdb76b8dcc363e1e25b8f04f69aeabe98c6be3",
                 "reference": "b8cdb76b8dcc363e1e25b8f04f69aeabe98c6be3",
+=======
+            "version": "v2.1.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-widget-select2.git",
+                "reference": "6a1a5e4bc80fff9c3341e1d9b718051db646031a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-select2/zipball/6a1a5e4bc80fff9c3341e1d9b718051db646031a",
+                "reference": "6a1a5e4bc80fff9c3341e1d9b718051db646031a",
+>>>>>>> master
                 "shasum": ""
             },
             "require": {
@@ -1453,7 +1511,11 @@
                 "widget",
                 "yii2"
             ],
+<<<<<<< HEAD
             "time": "2019-11-15T16:16:16+00:00"
+=======
+            "time": "2019-11-01T20:09:46+00:00"
+>>>>>>> master
         },
         {
             "name": "kartik-v/yii2-widget-sidenav",
@@ -1890,6 +1952,7 @@
         },
         {
             "name": "select2/select2",
+<<<<<<< HEAD
             "version": "4.0.12",
             "source": {
                 "type": "git",
@@ -1900,6 +1963,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/select2/select2/zipball/5765090318c4d382ae56463cfa25ba8ca7bdd495",
                 "reference": "5765090318c4d382ae56463cfa25ba8ca7bdd495",
+=======
+            "version": "4.0.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/select2/select2.git",
+                "reference": "a2b0acc7077808006328710b73f330382935cfa8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/select2/select2/zipball/a2b0acc7077808006328710b73f330382935cfa8",
+                "reference": "a2b0acc7077808006328710b73f330382935cfa8",
+>>>>>>> master
                 "shasum": ""
             },
             "type": "component",
@@ -1924,7 +1999,11 @@
             ],
             "description": "Select2 is a jQuery based replacement for select boxes.",
             "homepage": "https://select2.org/",
+<<<<<<< HEAD
             "time": "2019-11-06T01:34:17+00:00"
+=======
+            "time": "2019-10-13T20:42:14+00:00"
+>>>>>>> master
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4190,7 +4269,15 @@
         },
         {
             "name": "symfony/browser-kit",
+<<<<<<< HEAD
             "version": "v3.4.35",
+=======
+<<<<<<< HEAD
+            "version": "v3.4.35",
+=======
+            "version": "v3.4.34",
+>>>>>>> master
+>>>>>>> master
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/browser-kit.git",
@@ -4247,7 +4334,15 @@
         },
         {
             "name": "symfony/console",
+<<<<<<< HEAD
             "version": "v3.4.35",
+=======
+<<<<<<< HEAD
+            "version": "v3.4.35",
+=======
+            "version": "v3.4.34",
+>>>>>>> master
+>>>>>>> master
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
@@ -4319,7 +4414,15 @@
         },
         {
             "name": "symfony/css-selector",
+<<<<<<< HEAD
             "version": "v3.4.35",
+=======
+<<<<<<< HEAD
+            "version": "v3.4.35",
+=======
+            "version": "v3.4.34",
+>>>>>>> master
+>>>>>>> master
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
@@ -4372,7 +4475,15 @@
         },
         {
             "name": "symfony/debug",
+<<<<<<< HEAD
             "version": "v3.4.35",
+=======
+<<<<<<< HEAD
+            "version": "v3.4.35",
+=======
+            "version": "v3.4.34",
+>>>>>>> master
+>>>>>>> master
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
@@ -4428,7 +4539,15 @@
         },
         {
             "name": "symfony/dom-crawler",
+<<<<<<< HEAD
             "version": "v3.4.35",
+=======
+<<<<<<< HEAD
+            "version": "v3.4.35",
+=======
+            "version": "v3.4.34",
+>>>>>>> master
+>>>>>>> master
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
@@ -4485,7 +4604,15 @@
         },
         {
             "name": "symfony/event-dispatcher",
+<<<<<<< HEAD
             "version": "v3.4.35",
+=======
+<<<<<<< HEAD
+            "version": "v3.4.35",
+=======
+            "version": "v3.4.34",
+>>>>>>> master
+>>>>>>> master
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -4548,7 +4675,15 @@
         },
         {
             "name": "symfony/finder",
+<<<<<<< HEAD
             "version": "v3.4.35",
+=======
+<<<<<<< HEAD
+            "version": "v3.4.35",
+=======
+            "version": "v3.4.34",
+>>>>>>> master
+>>>>>>> master
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -4714,7 +4849,15 @@
         },
         {
             "name": "symfony/yaml",
+<<<<<<< HEAD
             "version": "v3.4.35",
+=======
+<<<<<<< HEAD
+            "version": "v3.4.35",
+=======
+            "version": "v3.4.34",
+>>>>>>> master
+>>>>>>> master
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",

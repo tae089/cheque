@@ -53,25 +53,16 @@ $this->params['breadcrumbs'][] = $this->title;
                     // ],
                     [
                         'attribute'=>'cheque_date',
-                        'options' => ['width' => '200px'],
-                        'value'=> function($model){
-                            if($model->cheque_date!=""){
-                                return $model->cheque_date;
-                            }else{
-                                return "";
-                            }
-                        },
-                        'filterType' => GridView::FILTER_DATE_RANGE,
-                        'filterWidgetOptions' =>([
-                            'attribute'=>'cheque_date',
-                            'convertFormat'=>true,
-                            'language' => 'th',
-                            'pluginOptions'=>[
-                                'locale'=>[
-                                    'format'=>'Y-m-d',
+                        'filter' => DateRangePicker::widget([
+                            'model' => $searchModel,
+                            //'attribute' => 'dealerAvailableDate',
+                            'convertFormat' => true,
+                            'pluginOptions' => [
+                                'locale' => [
+                                    'format' => 'Y-m-d'
                                 ],
                             ],
-                        ])  
+                        ]),
                     ],
                     [
                         'attribute' => 'contactname',
