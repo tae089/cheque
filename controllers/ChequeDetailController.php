@@ -8,6 +8,7 @@ use app\models\ChequeDetailSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use kartik\mpdf\Pdf;
 
 /**
  * ChequeDetailController implements the CRUD actions for ChequeDetail model.
@@ -101,7 +102,7 @@ class ChequeDetailController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
+        //var_dump($model);
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->cheque_id]);
         }
@@ -139,5 +140,14 @@ class ChequeDetailController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    public function actionPrint($id, $bank_id)
+    {
+        //'format' => [235, 90]
+        //$model = ChequeDetail::findOne($id);
+        //var_dump($model); die();
+        
+        $this->renderPartial('print_baac_bank', ['id' => $id, 'bank_id' => $bank_id]);
     }
 }

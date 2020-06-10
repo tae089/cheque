@@ -20,43 +20,58 @@ use app\models\Contact;
         <div class="box-body">
             <?php $form = ActiveForm::begin(); ?>
 
-            <?= $form->field($model, 'cheque_date')->widget(DatePicker::classname(), 
-            [
-                'removeButton' => false,
-                'language' => 'th',
-                'pluginOptions' => [
-                'autoclose'=>true,
-                'format' => 'yyyy-mm-dd',
-                'todayHighlight' => true,
-            ]
-            ]); ?>
-
             <? //$form->field($model, 'cheque_buy_name')->textInput() ?>
-        
-           <?php 
-           $listContact = ArrayHelper::map(Contact::find()->asArray()->all(), 'contact_id', 'contact_name');
-           echo $form->field($model, 'cheque_buy_name')->widget(Select2::classname(), 
-           [
-               'data' => $listContact,
-                'options' => ['placeholder' => 'กรุณาเลือก...'],
-                'pluginOptions' => [
-                    'allowClear' => true
-                ],
-            ]);?>
-            <?php 
-
-             $listData = ArrayHelper::map(Bank::find()->asArray()->all(), 'bank_id', 'bank_name_th');
-             
-             ?>
-            <?= $form->field($model, 'bankname')->dropDownlist($listData,['prompt'=>'เลือกธนาคาร']) ?>
-
-            <?= $form->field($model, 'cheque_amont')->textInput() ?>
-
-            <?= $form->field($model, 'cheque_note')->textarea(['rows' => 6]) ?>
-
-            <div class="form-group">
-                <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+            <div class="rows">
+                <div class="col-md-6">
+                    <?= $form->field($model, 'cheque_date')->widget(DatePicker::classname(), 
+                    [
+                        'removeButton' => false,
+                        'language' => 'th',
+                        'pluginOptions' => [
+                        'autoclose'=>true,
+                        'format' => 'yyyy-mm-dd',
+                        'todayHighlight' => true,
+                    ]
+                    ]); ?>
+                </div>
+                <div class="col-md-6">
+                    <?php 
+                       $listContact = ArrayHelper::map(Contact::find()->asArray()->all(), 'contact_id', 'contact_name');
+                       echo $form->field($model, 'cheque_buy_name')->widget(Select2::classname(), 
+                       [
+                           'data' => $listContact,
+                            'options' => ['placeholder' => 'กรุณาเลือก...'],
+                            'pluginOptions' => [
+                                'allowClear' => true
+                            ],
+                        ]);
+                    ?>
+                </div>
             </div>
+            <div class="rows">
+                <div class="col-md-6">
+                    <?php $listData = ArrayHelper::map(Bank::find()->asArray()->all(), 'bank_id', 'bank_name_th'); ?>
+                    <?php 
+                        
+                        echo $form->field($model, 'bank_id')->dropDownlist($listData,['prompt'=>'เลือกธนาคาร']);
+                    ?>
+                </div>
+                <div class="col-md-6">
+                    <?= $form->field($model, 'cheque_amont')->textInput() ?>
+                </div>
+            </div>
+            <div class="rows">
+                <div class="col-md-12">
+                    <?= $form->field($model, 'cheque_note')->textarea(['rows' => 6]) ?>
+                </div>
+            </div>
+            <div class="rows">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+                    </div>
+                </div>
+            </div>    
 
             <?php ActiveForm::end(); ?>
             

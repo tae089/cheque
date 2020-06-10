@@ -48,6 +48,7 @@ class ChequeDetail extends \yii\db\ActiveRecord
             'cheque_id' => 'ลำดับ',
             'cheque_date' => 'วันที่ออก Cheque',
             'contactname' => Yii::t('app','จ่ายให้'),
+            'bank_id' => 'ธนาคาร',
             'bankname' => Yii::t('app', 'ธนาคาร'),
             'cheque_amont' => 'จำนวนเงิน',
             'cheque_note' => 'หมายเหตุ',

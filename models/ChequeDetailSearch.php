@@ -16,6 +16,7 @@ class ChequeDetailSearch extends ChequeDetail
      */
     public $bankname;
     public $contactname;
+    public $cheque_date;
     public function rules()
     {
         return [
@@ -70,7 +71,7 @@ class ChequeDetailSearch extends ChequeDetail
         }
 
         if($this->cheque_date){
-            $new_date = explode(' - ',$dates);     
+            $new_date = explode(' - ',$this->cheque_date);    
         }
         
          

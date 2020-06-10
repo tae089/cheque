@@ -28,6 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'firstPageLabel' => 'First',
                     'lastPageLabel' => 'Last',
                 ],
+                'options' => ['width' => '100%'],
                 'showOnEmpty'=>true,
                 'panel'=>['type'=>'danger', 'heading'=> Html::encode($this->title)],
                 'responsive'=>true,
@@ -53,16 +54,19 @@ $this->params['breadcrumbs'][] = $this->title;
                     // ],
                     [
                         'attribute'=>'cheque_date',
-                        'filter' => DateRangePicker::widget([
-                            'model' => $searchModel,
-                            //'attribute' => 'dealerAvailableDate',
-                            'convertFormat' => true,
-                            'pluginOptions' => [
-                                'locale' => [
-                                    'format' => 'Y-m-d'
-                                ],
+                        'filterType' => GridView::FILTER_DATE_RANGE,
+                        'filterWidgetOptions' =>([
+                        //'model'=>$model,
+                        'attribute'=>'cheque_date',
+                        'convertFormat'=>true,
+                        'language' => 'th',
+                        'pluginOptions'=>[
+                            'allowClear' => true,
+                            'locale'=>[
+                                'format'=>'Y-m-d',
                             ],
-                        ]),
+                        ]
+                      ])
                     ],
                     [
                         'attribute' => 'contactname',
@@ -90,7 +94,17 @@ $this->params['breadcrumbs'][] = $this->title;
                     ],
                     //'cheque_note:ntext',
 
-                    ['class' => 'yii\grid\ActionColumn'],
+                    [
+                      'class' => 'yii\grid\ActionColumn',
+                      'buttonOptions'=>['class'=>'btn btn-default'],
+                      'template'=>'<div class="btn-group btn-group-sm text-center" role="group">{print} {view} {update} {delete} </div>',
+                      'options'=> ['style'=>'width:150px;'],
+                      'buttons'=>[
+                        'print' => function($url,$model,$key){
+                            return Html::a('<i class="fa fa-print"></i>',$url.'&bank_id='.$model->bank_id,['class'=>'btn btn-default','data-pjax' => 0, 'target' => "_blank"]);
+                          }
+                        ]
+                    ],
                 ],
             ]); ?>
 </div>
