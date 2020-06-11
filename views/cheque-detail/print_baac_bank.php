@@ -1,6 +1,5 @@
 <?php 
 use yii\helpers\Html;
-//echo $_GET['id'];
 
 // Include the main TCPDF library (search for installation path).
 require_once('../TCPDF/tcpdf.php');
@@ -66,13 +65,44 @@ if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
 // ---------------------------------------------------------
 
 // set font
-$pdf->SetFont('times', '', 48);
-//$pdf->AddPage('L', 'A5');
-
-
+$pdf->SetFont('thsarabun', '', 14);
+//$pdf->AddPage('L', 'A5 PORTRAIT');
 // add a page
 $pdf->AddPage();
 
+$pdf->SetXY(20, 2);
+$pdf->Write(0,'ว/ด/ป');
+
+$pdf->SetXY(17, 8);
+$pdf->Write(0,'จ่าย');
+
+$pdf->SetXY(18, 13.5);
+$pdf->Write(0,'จ่าย');
+
+//วันที่
+$pdf->SetXY(181, 4);
+$pdf->Write(0,'0');
+
+$pdf->SetXY(187, 4);
+$pdf->Write(0,'5');
+
+$pdf->SetXY(193, 4);
+$pdf->Write(0,'1');
+
+$pdf->SetXY(199, 4);
+$pdf->Write(0,'0');
+
+$pdf->SetXY(206, 4);
+$pdf->Write(0,'2');
+
+$pdf->SetXY(212, 4);
+$pdf->Write(0,'5');
+
+$pdf->SetXY(217, 4);
+$pdf->Write(0,'6');
+
+$pdf->SetXY(219, 4);
+$pdf->Write(0,'6');
 // Print a text
 
 //$pdf->writeHTML($html, true, false, true, false, '');
