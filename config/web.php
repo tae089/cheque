@@ -12,6 +12,9 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
+        'numbertostring' => [
+            'class' => 'app\components\NumberToStringComponent',
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'GWkevBW7Nx2V2FsygrXe3ByMRdzVAgev',

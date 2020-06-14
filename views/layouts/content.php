@@ -38,9 +38,9 @@ use dmstr\widgets\Alert;
 
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
-        <b>Version</b> 2.0
+        <b>Version</b> 1.0
     </div>
-    <strong>Copyright &copy; 2016-2017 <a href="#">@Freelance Team</a>.</strong>
+    <strong>Copyright &copy; 2020 <a href="#">@Information Technology รพ.โนนสะอาด</a>.</strong>
 </footer>
 
 <!-- Control Sidebar -->

@@ -2,7 +2,7 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=cheque_db',
+    'dsn' => 'mysql:host=localhost;dbname=cheque',
     'username' => 'root',
     'password' => '0847890084',
     'charset' => 'utf8',

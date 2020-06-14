@@ -45,7 +45,7 @@ if(!Yii::$app->user->isGuest){$id = Yii::$app->user->identity->id;}else{$id='';}
             <!-- Menu Footer-->
             <li class="user-footer">
                 <div class="pull-left">
-                    <a href="user/settings/account" class="btn btn-default btn-flat">Profile</a>
+                    <?php echo Html::a('Profile',['user/settings/account'], ['class' => 'btn btn-default btn-flat']) ?>
                 </div>
                 <div class="pull-right">
                     <?= Html::a(

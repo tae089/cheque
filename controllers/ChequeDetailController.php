@@ -144,11 +144,13 @@ class ChequeDetailController extends Controller
 
     public function actionPrint($id, $bank_id)
     {
-        //'format' => [235, 90]
         $model = ChequeDetail::findOne($id);
-        //var_dump($model);          
-       // die();
-        
-        $this->renderPartial('print_baac_bank', ['id' => $id, 'bank_id' => $bank_id]);
+        if ($model->bank_id==1) {
+            $this->renderPartial('print_ktb_bank', ['data' => $model]);
+        // } else {
+        //     $this->renderPartial('print_baac_bank', ['data' => $model]);
+        }
+
+        throw new NotFoundHttpException('The requested page does not exist.');
     }
 }
