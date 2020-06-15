@@ -144,6 +144,7 @@ class ChequeDetailController extends Controller
 
     public function actionPrint($id, $bank_id)
     {
+        
         $model = ChequeDetail::findOne($id);
         if ($model->bank_id==1) {
             $this->renderPartial('print_ktb_bank', ['data' => $model]);

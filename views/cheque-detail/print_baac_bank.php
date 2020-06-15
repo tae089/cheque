@@ -3,6 +3,7 @@ use yii\helpers\Html;
 use app\models\Bank;
 use app\models\Contact;
 
+
 // Include the main TCPDF library (search for installation path).
 require_once('../TCPDF/tcpdf.php');
 	
@@ -67,7 +68,9 @@ if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
 // ---------------------------------------------------------
 
 // set font
+
 $pdf->SetFont('thsarabun', '', 16);
+
 //$pdf->AddPage('L', 'A5 PORTRAIT');
 // add a page
 $pdf->AddPage();
@@ -114,6 +117,7 @@ $pdf->Write(0,Yii::$app->numbertostring->num2wordsThai($data['cheque_amont']));
 
 $pdf->SetXY(170, 37);
 $pdf->Write(0, '**'.number_format($data['cheque_amont']).'**');
+
 // Print a text
 
 //$pdf->writeHTML($html, true, false, true, false, '');
