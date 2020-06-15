@@ -4,20 +4,7 @@ namespace app\components;
 use yii\base\Component;
 
 class NumberToStringComponent extends Component{
-    public $content;
-	
-    public function init(){
-        parent::init();
-        $this->content= 'Hello Yii 2.0';
-    }
-	
-    public function display($content=null){
-        if($content!=null){
-            $this->content= $content;
-        }
-        echo Html::encode($this->content);
-    }
-
+   
     public function num2wordsThai($num){   
         $num=str_replace(",","",$num);
         $num_decimal=explode(".",$num);
@@ -71,5 +58,49 @@ class NumberToStringComponent extends Component{
             }
         }       
         return $returnNumWord.'บาทถ้วน';   
-    }   
+    }
+
+    public function showDateThai($state){
+        $date1=explode("-",$state);
+        $nowyear=$date1[0]+543;
+        $nowmonth=$date1[1];
+        $nowday=$date1[2];
+        switch ($nowmonth){
+            case '1' :
+                $month1="ม.ค.";break;
+            case '2' :
+                $month1="ก.พ.";break;
+            case '3' :
+                $month1="มี.ค.";break;
+            case '4' :
+                $month1="เม.ย.";break;
+            case '5' :
+                $month1="พ.ค.";break;
+            case '6' :
+                $month1="มิ.ย.";break;
+            case '7' :
+                $month1="ก.ค.";break;
+            case '8' :
+                $month1="ส.ค.";break;
+            case '9' :
+                $month1="ก.ย.";break;
+            case '10' :
+                $month1="ต.ค.";break;
+            case '11' :
+                $month1="พ.ย.";break;
+            case '12' :
+                $month1="ธ.ค.";break;
+        }
+        return $nowday." ".$month1." ".$nowyear;
+    }
+
+    public function showDateNumber($state, $type){
+        $date1 = explode("-",$state);
+        $nowyear=$date1[0]+543;
+        $nowmonth=$date1[1];
+        $nowday=$date1[2];
+        return $nowday." ".$nowmonth." ".$nowyear;
+    }
+    
+    
 }

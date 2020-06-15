@@ -67,13 +67,13 @@ if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
 // ---------------------------------------------------------
 
 // set font
-$pdf->SetFont('thsarabun', '', 16);
+$pdf->SetFont('thsarabun', '', 13);
 //$pdf->AddPage('L', 'A5 PORTRAIT');
 // add a page
 $pdf->AddPage();
 
-$pdf->SetXY(20, 1);
-$pdf->Write(0,$data['cheque_date']);
+$pdf->SetXY(20, 2);
+$pdf->Write(0, Yii::$app->numbertostring->showDateThai($data['cheque_date']));
 
 $pdf->SetXY(17, 7);
 $pdf->Write(0,$data['contactname']);
@@ -83,7 +83,7 @@ $pdf->Write(0, number_format($data['cheque_amont']));
 
 //วันที่
 $pdf->SetXY(181, 4);
-$pdf->Write(0,'0');
+$pdf->Write(0,Yii::$app->numbertostring->showDateNumber($data['cheque_date']));
 
 $pdf->SetXY(187, 4);
 $pdf->Write(0,'5');
