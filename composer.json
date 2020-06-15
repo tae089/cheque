@@ -20,6 +20,7 @@
         "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
         "dmstr/yii2-adminlte-asset": "2.*",
         "dektrium/yii2-user": "0.9.*@dev",
+<<<<<<< HEAD
         "kartik-v/yii2-grid": "@dev",
         "kartik-v/yii2-date-range": "*",
         "kartik-v/yii2-widgets": "*"

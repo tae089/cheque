@@ -82,8 +82,8 @@ $pdf->SetXY(18, 13);
 $pdf->Write(0, number_format($data['cheque_amont']));
 
 //วันที่
-$pdf->SetXY(181, 4);
-$pdf->Write(0,Yii::$app->numbertostring->showDateNumber($data['cheque_date']));
+//$pdf->SetXY(181, 4);
+//$pdf->Write(0,Yii::$app->numbertostring->showDateNumber($data['cheque_date']));
 
 $pdf->SetXY(187, 4);
 $pdf->Write(0,'5');

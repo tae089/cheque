@@ -76,7 +76,7 @@ class ChequeDetailController extends Controller
             
             $model->cheque_date = $data['ChequeDetail']['cheque_date'];
             $model->cheque_buy_name = $data['ChequeDetail']['cheque_buy_name'];
-            $model->bank_id = $data['ChequeDetail']['bankname'];
+            $model->bank_id = $data['ChequeDetail']['bank_id'];
             $model->cheque_amont = $data['ChequeDetail']['cheque_amont'];
             $model->cheque_note = $data['ChequeDetail']['cheque_note'];
             $model->save();
