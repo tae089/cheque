@@ -20,7 +20,7 @@ use app\models\Contact;
         <div class="box-body">
             <?php $form = ActiveForm::begin(); ?>
 
-            <? //$form->field($model, 'cheque_buy_name')->textInput() ?>
+            <?php //$form->field($model, 'cheque_buy_name')->textInput() ?>
             <div class="rows">
                 <div class="col-md-6">
                     <?= $form->field($model, 'cheque_date')->widget(DatePicker::classname(), 
@@ -57,18 +57,18 @@ use app\models\Contact;
                     ?>
                 </div>
                 <div class="col-md-6">
-                    <?= $form->field($model, 'cheque_amont')->textInput() ?>
+                    <?php echo $form->field($model, 'cheque_amont')->textInput() ?>
                 </div>
             </div>
             <div class="rows">
                 <div class="col-md-12">
-                    <?= $form->field($model, 'cheque_note')->textarea(['rows' => 6]) ?>
+                    <?php echo $form->field($model, 'cheque_note')->textarea(['rows' => 6]) ?>
                 </div>
             </div>
             <div class="rows">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+                        <?php echo Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
                     </div>
                 </div>
             </div>    

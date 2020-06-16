@@ -54,6 +54,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     // ],
                     [
                         'attribute'=>'cheque_date',
+                        'options' => ['width' => '200px'],
                         'value'=> function($model){
                             if($model->cheque_date!=""){
                                 $ndate = $model->cheque_date;
@@ -91,7 +92,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     ],
                     [
                         'attribute' => 'bankname',
-                        'options' => ['width' => '200px'],
+                        'options' => ['width' => '150px'],
                         'filter' => ArrayHelper::map(Bank::find()->asArray()->all(), 'bank_name_th', 'bank_name_th'),
                     ],
                     [
@@ -107,7 +108,7 @@ $this->params['breadcrumbs'][] = $this->title;
                       'class' => 'yii\grid\ActionColumn',
                       'buttonOptions'=>['class'=>'btn btn-default'],
                       'template'=>'<div class="btn-group btn-group-sm text-center" role="group">{print} {view} {update} {delete} </div>',
-                      'options'=> ['style'=>'width:150px;'],
+                      'options'=> ['style'=>'width:160px;'],
                       'buttons'=>[
                         'print' => function($url,$model,$key){
                             return Html::a('<i class="fa fa-print"></i>',$url.'&bank_id='.$model->bank_id,['class'=>'btn btn-default','data-pjax' => 0, 'target' => "_blank"]);
