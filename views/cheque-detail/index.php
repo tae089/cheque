@@ -54,19 +54,28 @@ $this->params['breadcrumbs'][] = $this->title;
                     // ],
                     [
                         'attribute'=>'cheque_date',
+                        'value'=> function($model){
+                            if($model->cheque_date!=""){
+                                $ndate = $model->cheque_date;
+                                $ndate1 = explode("-",$ndate);
+                                $ndate2 = $ndate1[0]+543;
+                                return $ndate1[2]."-".$ndate1[1]."-".$ndate2;
+                            }else{
+                                return "";
+                            }
+                        },                
                         'filterType' => GridView::FILTER_DATE_RANGE,
                         'filterWidgetOptions' =>([
-                        //'model'=>$model,
-                        'attribute'=>'cheque_date',
-                        'convertFormat'=>true,
-                        'language' => 'th',
-                        'pluginOptions'=>[
-                            'allowClear' => true,
-                            'locale'=>[
-                                'format'=>'Y-m-d',
-                            ],
-                        ]
-                      ])
+                                //'model'=>$model,
+                            'attribute'=>'cheque_date',          
+                            'convertFormat'=>true,  
+                            'language' => 'th',     
+                            'pluginOptions'=>[
+                                'locale'=>[
+                                    'format'=>'Y-m-d',
+                                ],
+                            ]
+                        ])
                     ],
                     [
                         'attribute' => 'contactname',
