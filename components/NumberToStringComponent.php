@@ -94,12 +94,14 @@ class NumberToStringComponent extends Component{
         return $nowday." ".$month1." ".$nowyear;
     }
 
-    public function showDateNumber($state, $type){
+    public function showDateNumber($state){
         $date1 = explode("-",$state);
         $nowyear=$date1[0]+543;
         $nowmonth=$date1[1];
         $nowday=$date1[2];
-        return $nowday." ".$nowmonth." ".$nowyear;
+        $lists=$nowday.$nowmonth.$nowyear;
+        
+        return str_split($lists);
     }
     
     

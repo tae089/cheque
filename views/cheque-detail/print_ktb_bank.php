@@ -18,8 +18,8 @@ class MYPDF extends TCPDF {
         // disable auto-page-break
         $this->SetAutoPageBreak(false, 0);
         // set bacground image
-        $img_file = K_PATH_IMAGES.'ktb_bank.jpg';
-        $this->Image($img_file, 0, 0, 245, 90, '', '', '', false, 300, '', false, false, 0);
+       // $img_file = K_PATH_IMAGES.'ktb_bank.jpg';
+       // $this->Image($img_file, 0, 0, 245, 90, '', '', '', false, 300, '', false, false, 0);
         // restore auto-page-break status
         $this->SetAutoPageBreak($auto_page_break, $bMargin);
         // set the starting point for the page content
@@ -82,29 +82,30 @@ $pdf->SetXY(18, 13);
 $pdf->Write(0, number_format($data['cheque_amont']));
 
 //วันที่
+$arr = Yii::$app->numbertostring->showDateNumber($data['cheque_date']);
 $pdf->SetXY(181, 4);
-$pdf->Write(0,Yii::$app->numbertostring->showDateNumber($data['cheque_date']));
+$pdf->Write(0, $arr[0]);
 
 $pdf->SetXY(187, 4);
-$pdf->Write(0,'5');
+$pdf->Write(0, $arr[1]);
 
 $pdf->SetXY(193, 4);
-$pdf->Write(0,'1');
+$pdf->Write(0, $arr[2]);
 
 $pdf->SetXY(199, 4);
-$pdf->Write(0,'0');
+$pdf->Write(0,$arr[3]);
 
 $pdf->SetXY(206, 4);
-$pdf->Write(0,'2');
+$pdf->Write(0, $arr[4]);
 
 $pdf->SetXY(212, 4);
-$pdf->Write(0,'5');
+$pdf->Write(0,$arr[5]);
 
 $pdf->SetXY(218, 4);
-$pdf->Write(0,'6');
+$pdf->Write(0, $arr[6]);
 
 $pdf->SetXY(224, 4);
-$pdf->Write(0,'3');
+$pdf->Write(0, $arr[7]);
 
 $pdf->SetXY(80, 21);
 $pdf->Write(0,$data['contactname']);
@@ -113,7 +114,7 @@ $pdf->SetXY(95, 30);
 $pdf->Write(0,Yii::$app->numbertostring->num2wordsThai($data['cheque_amont']));
 
 $pdf->SetXY(170, 37);
-$pdf->Write(0, '**'.number_format($data['cheque_amont']).'**');
+$pdf->Write(0, '** '.number_format($data['cheque_amont']).' **');
 // Print a text
 
 //$pdf->writeHTML($html, true, false, true, false, '');
