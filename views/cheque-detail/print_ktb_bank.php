@@ -75,7 +75,7 @@ $pdf->AddPage();
 $pdf->SetXY(20, 2);
 $pdf->Write(0, Yii::$app->numbertostring->showDateThai($data['cheque_date']));
 
-$pdf->SetXY(17, 7);
+$pdf->SetXY(15, 7);
 $pdf->Write(0,$data['contactname']);
 
 $pdf->SetXY(18, 13);
@@ -113,7 +113,7 @@ $pdf->Write(0,$data['contactname']);
 $pdf->SetXY(95, 30);
 $pdf->Write(0,Yii::$app->numbertostring->num2wordsThai($data['cheque_amont']));
 
-$pdf->SetXY(170, 37);
+$pdf->SetXY(181, 37);
 $pdf->Write(0, '** '.number_format($data['cheque_amont']).' **');
 // Print a text
 

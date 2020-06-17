@@ -45,7 +45,7 @@ if(!Yii::$app->user->isGuest){$id = Yii::$app->user->identity->id;}else{$id='';}
             <!-- Menu Footer-->
             <li class="user-footer">
                 <div class="pull-left">
-                    <?php echo Html::a('Profile',['user/settings/account'], ['class' => 'btn btn-default btn-flat']) ?>
+                    <?php echo Html::a('Profile',['/user/settings/account'], ['class' => 'btn btn-default btn-flat']) ?>
                 </div>
                 <div class="pull-right">
                     <?= Html::a(
@@ -66,7 +66,7 @@ if(!Yii::$app->user->isGuest){$id = Yii::$app->user->identity->id;}else{$id='';}
 </ul>
 <?php }else{ ?>
     <li>
-      <a href="user/security/login">
+       <a href="<?php echo Yii::getAlias('@web').'/user/security/login';?>">
         <i class="fa fa-lock text-white"></i> Login
     </a>
 </li>
