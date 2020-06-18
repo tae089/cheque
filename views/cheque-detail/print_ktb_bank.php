@@ -18,8 +18,8 @@ class MYPDF extends TCPDF {
         // disable auto-page-break
         $this->SetAutoPageBreak(false, 0);
         // set bacground image
-       // $img_file = K_PATH_IMAGES.'ktb_bank.jpg';
-       // $this->Image($img_file, 0, 0, 245, 90, '', '', '', false, 300, '', false, false, 0);
+        //$img_file = K_PATH_IMAGES.'ktb_bank.jpg';
+        //$this->Image($img_file, 0, 0, 250, 90, '', '', '', false, 300, '', false, false, 0);
         // restore auto-page-break status
         $this->SetAutoPageBreak($auto_page_break, $bMargin);
         // set the starting point for the page content
@@ -28,7 +28,7 @@ class MYPDF extends TCPDF {
 }
 
 // create new PDF document
-$pdf = new MYPDF('L', PDF_UNIT, [245 ,90], true, 'UTF-8', false);
+$pdf = new MYPDF('L', PDF_UNIT, [257 ,90], true, 'UTF-8', false);
 //$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
 // set document information
@@ -72,48 +72,48 @@ $pdf->SetFont('thsarabun', '', 13);
 // add a page
 $pdf->AddPage();
 
-$pdf->SetXY(20, 2);
-$pdf->Write(0, Yii::$app->numbertostring->showDateThai($data['cheque_date']));
+ $pdf->SetXY(20, 10);
+ $pdf->Write(0, Yii::$app->numbertostring->showDateThai($data['cheque_date']));
 
-$pdf->SetXY(15, 7);
+$pdf->SetXY(15, 16);
 $pdf->Write(0,$data['contactname']);
 
-$pdf->SetXY(18, 13);
+$pdf->SetXY(19, 22);
 $pdf->Write(0, number_format($data['cheque_amont']));
 
 //วันที่
 $arr = Yii::$app->numbertostring->showDateNumber($data['cheque_date']);
-$pdf->SetXY(181, 4);
+$pdf->SetXY(190, 12);
 $pdf->Write(0, $arr[0]);
 
-$pdf->SetXY(187, 4);
+$pdf->SetXY(197, 12);
 $pdf->Write(0, $arr[1]);
 
-$pdf->SetXY(193, 4);
+$pdf->SetXY(204, 12);
 $pdf->Write(0, $arr[2]);
 
-$pdf->SetXY(199, 4);
+$pdf->SetXY(210, 12);
 $pdf->Write(0,$arr[3]);
 
-$pdf->SetXY(206, 4);
+$pdf->SetXY(216, 12);
 $pdf->Write(0, $arr[4]);
 
-$pdf->SetXY(212, 4);
+$pdf->SetXY(223, 12);
 $pdf->Write(0,$arr[5]);
 
-$pdf->SetXY(218, 4);
+$pdf->SetXY(229, 12);
 $pdf->Write(0, $arr[6]);
 
-$pdf->SetXY(224, 4);
+$pdf->SetXY(236, 12);
 $pdf->Write(0, $arr[7]);
 
-$pdf->SetXY(80, 21);
+$pdf->SetXY(80, 30);
 $pdf->Write(0,$data['contactname']);
 
-$pdf->SetXY(95, 30);
+$pdf->SetXY(95, 40);
 $pdf->Write(0,Yii::$app->numbertostring->num2wordsThai($data['cheque_amont']));
 
-$pdf->SetXY(181, 37);
+$pdf->SetXY(181, 48);
 $pdf->Write(0, '** '.number_format($data['cheque_amont']).' **');
 // Print a text
 
