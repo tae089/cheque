@@ -20,7 +20,7 @@ use yii\helpers\Html;
             </div>
         </div>
 
-        <?= dmstr\widgets\Menu::widget(
+        <?php echo dmstr\widgets\Menu::widget(
             [
                 'options' => ['class' => 'sidebar-menu'],
                 'items' => [

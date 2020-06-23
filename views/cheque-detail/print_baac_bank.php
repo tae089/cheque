@@ -3,7 +3,6 @@ use yii\helpers\Html;
 use app\models\Bank;
 use app\models\Contact;
 
-
 // Include the main TCPDF library (search for installation path).
 require_once('../TCPDF/tcpdf.php');
 	
@@ -19,8 +18,8 @@ class MYPDF extends TCPDF {
         // disable auto-page-break
         $this->SetAutoPageBreak(false, 0);
         // set bacground image
-        $img_file = K_PATH_IMAGES.'ktb_bank.jpg';
-        $this->Image($img_file, 0, 0, 245, 90, '', '', '', false, 300, '', false, false, 0);
+        //$img_file = K_PATH_IMAGES.'ktb_bank.jpg';
+        //$this->Image($img_file, 0, 0, 250, 90, '', '', '', false, 300, '', false, false, 0);
         // restore auto-page-break status
         $this->SetAutoPageBreak($auto_page_break, $bMargin);
         // set the starting point for the page content
@@ -29,7 +28,7 @@ class MYPDF extends TCPDF {
 }
 
 // create new PDF document
-$pdf = new MYPDF('L', PDF_UNIT, [245 ,90], true, 'UTF-8', false);
+$pdf = new MYPDF('L', PDF_UNIT, [257 ,90], true, 'UTF-8', false);
 //$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
 // set document information
@@ -68,56 +67,58 @@ if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
 // ---------------------------------------------------------
 
 // set font
-
-$pdf->SetFont('thsarabun', '', 16);
-
+$pdf->SetFont('thsarabun', '', 13);
 //$pdf->AddPage('L', 'A5 PORTRAIT');
 // add a page
 $pdf->AddPage();
 
-$pdf->SetXY(20, 1);
-$pdf->Write(0,$data['cheque_date']);
+$pdf->SetXY(20, 15);
+$pdf->Write(0, Yii::$app->numbertostring->showDateThai($data['cheque_date']));
 
-$pdf->SetXY(17, 7);
+$pdf->SetFont('thsarabun', '', 10);
+$pdf->SetXY(15, 29);
 $pdf->Write(0,$data['contactname']);
 
-$pdf->SetXY(18, 13);
+$pdf->SetFont('thsarabun', '', 13);
+$pdf->SetXY(20, 46);
 $pdf->Write(0, number_format($data['cheque_amont']));
 
+$pdf->SetFont('thsarabun', '', 13);
 //วันที่
-$pdf->SetXY(181, 4);
-$pdf->Write(0,'0');
+$arr = Yii::$app->numbertostring->showDateNumber($data['cheque_date']);
+$pdf->SetXY(188, 13);
+$pdf->Write(0, $arr[0]);
 
-$pdf->SetXY(187, 4);
-$pdf->Write(0,'5');
+$pdf->SetXY(195, 13);
+$pdf->Write(0, $arr[1]);
 
-$pdf->SetXY(193, 4);
-$pdf->Write(0,'1');
+$pdf->SetXY(202, 13);
+$pdf->Write(0, $arr[2]);
 
-$pdf->SetXY(199, 4);
-$pdf->Write(0,'0');
+$pdf->SetXY(208, 13);
+$pdf->Write(0,$arr[3]);
 
-$pdf->SetXY(206, 4);
-$pdf->Write(0,'2');
+$pdf->SetXY(214, 13);
+$pdf->Write(0, $arr[4]);
 
-$pdf->SetXY(212, 4);
-$pdf->Write(0,'5');
+$pdf->SetXY(221, 13);
+$pdf->Write(0,$arr[5]);
 
-$pdf->SetXY(218, 4);
-$pdf->Write(0,'6');
+$pdf->SetXY(227, 13);
+$pdf->Write(0, $arr[6]);
 
-$pdf->SetXY(224, 4);
-$pdf->Write(0,'3');
+$pdf->SetXY(234, 13);
+$pdf->Write(0, $arr[7]);
 
-$pdf->SetXY(80, 21);
+$pdf->SetFont('thsarabun', '', 16);
+$pdf->SetXY(83, 29);
 $pdf->Write(0,$data['contactname']);
 
-$pdf->SetXY(95, 30);
+$pdf->SetXY(97, 37);
 $pdf->Write(0,Yii::$app->numbertostring->num2wordsThai($data['cheque_amont']));
 
-$pdf->SetXY(170, 37);
-$pdf->Write(0, '**'.number_format($data['cheque_amont']).'**');
-
+$pdf->SetXY(181, 46);
+$pdf->Write(0, '** '.number_format($data['cheque_amont']).' **');
 // Print a text
 
 //$pdf->writeHTML($html, true, false, true, false, '');

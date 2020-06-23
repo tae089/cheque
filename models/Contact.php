@@ -39,8 +39,8 @@ class Contact extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'contact_id' => 'Contact ID',
-            'contact_name' => 'Contact Name',
+            'contact_id' => 'รหัสผู้ติดต่อ',
+            'contact_name' => 'รายชื่อผู้ติดต่อ',
         ];
     }
 }

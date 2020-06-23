@@ -72,15 +72,18 @@ $pdf->SetFont('thsarabun', '', 13);
 // add a page
 $pdf->AddPage();
 
- $pdf->SetXY(20, 10);
- $pdf->Write(0, Yii::$app->numbertostring->showDateThai($data['cheque_date']));
+$pdf->SetXY(20, 10);
+$pdf->Write(0, Yii::$app->numbertostring->showDateThai($data['cheque_date']));
 
-$pdf->SetXY(15, 16);
+$pdf->SetFont('thsarabun', '', 10);
+$pdf->SetXY(17, 17);
 $pdf->Write(0,$data['contactname']);
 
-$pdf->SetXY(19, 22);
+$pdf->SetFont('thsarabun', '', 13);
+$pdf->SetXY(19, 23);
 $pdf->Write(0, number_format($data['cheque_amont']));
 
+$pdf->SetFont('thsarabun', '', 13);
 //วันที่
 $arr = Yii::$app->numbertostring->showDateNumber($data['cheque_date']);
 $pdf->SetXY(190, 12);
@@ -107,13 +110,14 @@ $pdf->Write(0, $arr[6]);
 $pdf->SetXY(236, 12);
 $pdf->Write(0, $arr[7]);
 
-$pdf->SetXY(80, 30);
+$pdf->SetFont('thsarabun', '', 16);
+$pdf->SetXY(83, 29);
 $pdf->Write(0,$data['contactname']);
 
-$pdf->SetXY(95, 40);
+$pdf->SetXY(97, 38);
 $pdf->Write(0,Yii::$app->numbertostring->num2wordsThai($data['cheque_amont']));
 
-$pdf->SetXY(181, 48);
+$pdf->SetXY(181, 46);
 $pdf->Write(0, '** '.number_format($data['cheque_amont']).' **');
 // Print a text
 

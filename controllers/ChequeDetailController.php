@@ -148,8 +148,8 @@ class ChequeDetailController extends Controller
         $model = ChequeDetail::findOne($id);
         if ($model->bank_id==1) {
             $this->renderPartial('print_ktb_bank', ['data' => $model]);
-        // } else {
-        //     $this->renderPartial('print_baac_bank', ['data' => $model]);
+         } else if ($model->bank_id==8) {
+            $this->renderPartial('print_baac_bank', ['data' => $model]);
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');

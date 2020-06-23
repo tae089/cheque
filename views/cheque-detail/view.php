@@ -16,8 +16,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->cheque_id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->cheque_id], [
+        <?= Html::a('แก้ไข', ['update', 'id' => $model->cheque_id], ['class' => 'btn btn-warning']) ?>
+        <?= Html::a('ลบ', ['delete', 'id' => $model->cheque_id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -31,8 +31,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'cheque_id',
             'cheque_date',
-            'cheque_buy_name:ntext',
-            'bank_id',
+            'contactname:ntext',
+            'bankname',
             'cheque_amont',
             'cheque_note:ntext',
         ],

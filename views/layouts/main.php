@@ -36,7 +36,7 @@ use yii\helpers\Html;
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
     </head>
-    <body class="hold-transition skin-red sidebar-mini">
+    <body class="hold-transition skin-red sidebar-collapse sidebar-mini">
     <?php $this->beginBody() ?>
     <div class="wrapper">
 
