@@ -36,6 +36,10 @@ class ChequeDetailController extends Controller
      */
     public function actionIndex()
     {
+        if (Yii::$app->user->isGuest) {
+            $this->redirect(['/user/security/login']);
+        }
+
         $searchModel = new ChequeDetailSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -53,6 +57,9 @@ class ChequeDetailController extends Controller
      */
     public function actionView($id)
     {
+        if (Yii::$app->user->isGuest) {
+            $this->redirect(['/user/security/login']);
+        }
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);

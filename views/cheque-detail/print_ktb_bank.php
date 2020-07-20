@@ -81,7 +81,7 @@ $pdf->Write(0,$data['contactname']);
 
 $pdf->SetFont('thsarabun', '', 13);
 $pdf->SetXY(19, 23);
-$pdf->Write(0, number_format($data['cheque_amont']));
+$pdf->Write(0, number_format($data['cheque_amont'],2));
 
 $pdf->SetFont('thsarabun', '', 13);
 //วันที่
@@ -115,10 +115,10 @@ $pdf->SetXY(83, 29);
 $pdf->Write(0,$data['contactname']);
 
 $pdf->SetXY(97, 38);
-$pdf->Write(0,Yii::$app->numbertostring->num2wordsThai($data['cheque_amont']));
+$pdf->Write(0,Yii::$app->numbertostring->Convertstr($data['cheque_amont']));
 
 $pdf->SetXY(181, 46);
-$pdf->Write(0, '** '.number_format($data['cheque_amont']).' **');
+$pdf->Write(0, '** '.number_format($data['cheque_amont'],2).' **');
 // Print a text
 
 //$pdf->writeHTML($html, true, false, true, false, '');

@@ -51,7 +51,7 @@ class ChequeDetail extends \yii\db\ActiveRecord
             'bank_id' => 'ธนาคาร',
             'bankname' => Yii::t('app', 'ธนาคาร'),
             'cheque_amont' => 'จำนวนเงิน',
-            'cheque_note' => 'หมายเหตุ',
+            'cheque_note' => 'หมายเหตุ'
         ];
     }
 

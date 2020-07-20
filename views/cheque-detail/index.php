@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'responsive'=>true,
                 'hover'=>true,
                 'pjax'=>true,
-                // 'showPageSummary' => true,
+                'showPageSummary' => true,
                 'export' => [
                     'label' => 'Export',
                     'fontAwesome' => true,
@@ -98,12 +98,10 @@ $this->params['breadcrumbs'][] = $this->title;
                     [
                         'attribute'=>'cheque_amont',
                         'options' => ['width' => '130px'],
-                        'value'=> function($model){
-                            return number_format($model->cheque_amont);
-                        }
+                        'format' => 'decimal',
+                        'pageSummary' => true
                     ],
                     //'cheque_note:ntext',
-
                     [
                       'class' => 'yii\grid\ActionColumn',
                       'buttonOptions'=>['class'=>'btn btn-default'],
